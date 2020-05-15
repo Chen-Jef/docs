@@ -66,6 +66,9 @@ $config = [
 
 $app = Factory::payment($config);
 ```
+若出现如下错误提示：openssl_public_encrypt(): key parameter is not a valid public key
+需执行 openssl rsa -RSAPublicKey_in -in <filename> -pubout
+将获取的PKCS#8公钥格式RSA内容替换到public-14339221228.pem中
 
 ```php
 $result = $app->transfer->toBankCard([
